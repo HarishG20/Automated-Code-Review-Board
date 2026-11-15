@@ -1,0 +1,27 @@
+diff --git a/src/data_processor.py b/src/data_processor.py
+new file mode 100644
+index 0000000..cafebabe
+--- /dev/null
++++ b/src/data_processor.py
+@@ -0,0 +1,22 @@
++"""Data processing utilities."""
++
++
++def normalize_scores(scores: list) -> list:
++    max_score = max(scores) if scores else 1
++    return [s / max_score for s in scores]
++
++
++def filter_outliers(data: list, threshold: float = 2.0) -> list:
++    if not data:
++        return []
++    mean = sum(data) / len(data)
++    variance = sum((x - mean) ** 2 for x in data) / len(data)
++    std = variance ** 0.5
++    return [x for x in data if abs(x - mean) <= threshold * std]
++
++
++def compute_statistics(data: list) -> dict:
++    if not data:
++        return {}
++    return {"mean": sum(data) / len(data), "count": len(data)}

@@ -1,0 +1,44 @@
+diff --git a/src/calculator.py b/src/calculator.py
+new file mode 100644
+index 0000000..1a2b3c4
+--- /dev/null
++++ b/src/calculator.py
+@@ -0,0 +1,20 @@
++"""Simple calculator module."""
++
++
++def add(a: int, b: int) -> int:
++    """Return the sum of two integers.
++
++    Args:
++        a: First operand.
++        b: Second operand.
++
++    Returns:
++        The sum a + b.
++    """
++    return a + b
++
++
++def subtract(a: int, b: int) -> int:
++    """Return the difference of two integers."""
++    return a - b
+diff --git a/tests/test_calculator.py b/tests/test_calculator.py
+new file mode 100644
+index 0000000..9f8e7d6
+--- /dev/null
++++ b/tests/test_calculator.py
+@@ -0,0 +1,12 @@
++"""Tests for the calculator module."""
++import pytest
++from src.calculator import add, subtract
++
++
++def test_add():
++    """Test the add function."""
++    assert add(2, 3) == 5
++
++
++def test_subtract():
++    """Test the subtract function."""
++    assert subtract(5, 3) == 2
